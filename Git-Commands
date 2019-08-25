@@ -12,6 +12,7 @@ NOTE: [ change email.user name =  vi ~/.gitconfig ]
 git clone <url>                                      # This command is used to obtain a repository from an existing URL.
 
 git add <file name>                                  # this command is adds a file to working to staging area.
+git add -A                                           # Add all new and changed files to the staging area.
 git status                                           # This command lists all the files that have to be committed.
 git commit -m "Type in the commit message" < >          # This command records or snapshots the file permanently in the version history.
 git commit -a -m " msg "                             # This command commits any files you’ve added with the git add command and also commits any files you’ve changed since then.
@@ -122,8 +123,12 @@ git stash apply stash@{0}                          # revert to staging area
 git stash drop stash@{0}                           # after revert files to drop the staging area
 git remote show arigin                             # show the all information of github
 
+git tag <commit id>                                # This command is used to give tags to the specified commit.
+git pull <Repository Link>                         # This command fetches and merges changes on the remote server to your working directory.
 
 
 
 
-                             # 
+
+
+                              
