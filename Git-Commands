@@ -49,6 +49,8 @@ git init --base --shared                             # directly creat central re
 
 git branch                                           # list all of the branches in your repo
 git branch <name>                                    # creat new branch
+git push --all                                       # to push newly created branches to repo.
+git push --tags                                      # to push all local tags to repo
 git checkout -b <branch>                             # Create and check out a new branch named <branch>. Drop the -b 
                                                        flag to checkout an existing branch.
 git checkout <branch>                                # switched to other branch
