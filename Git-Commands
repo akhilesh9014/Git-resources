@@ -4,7 +4,10 @@ git init <repository name>                           # This command is used to s
 
 git config –global user.name "name"
 git config –global user.email "email address"        # This command sets the author name and email address respectively
-                                                        to be used with your commits.
+                                                       to be used with your commits.
+                                                       
+git config --edit --global                           # once enter this command that will show the edit the golbal config options                                                       
+
 ====================================================
 NOTE: [ change email.user name =  vi ~/.gitconfig ]
 ====================================================
@@ -56,6 +59,8 @@ git checkout -b <branch>                             # Create and check out a ne
 git checkout <branch>                                # switched to other branch
 git branch -m <presnt name> <othername>              # rename the current branch 
 git merge <branch>                                   # Merge <branch> into the current branch
+git branch --merged                                  # that will show what branches are merged into master
+git branch --on-merged                               # that will show, what branches are not merged into master 
 git branch -a                                        # List all branches (local and remote)
 git rm <file>                                        # This command deletes the file from your working directory and stages the deletion.
 git branch -d                                        # This command deletes the feature branch.
@@ -104,7 +109,7 @@ git push <remote> --tags                             # Tags aren’t automatical
 =====================================================================
 creat ignore files
 =====================================================================
-vi.gitignore               # add the files which you want to ignore
+vi.gitignore               # add the files which you want to ignore       # which is use for skip the files while push to central repo,
                               [ add some collection of files ]
 
      git status
@@ -118,7 +123,7 @@ git stash list                                     # to list all stash files
      ex:- previous files stash@{1} 
      
 git stash save                                     # This command temporarily stores all the modified tracked files.
-git stash clean                                    #  clean the stash area
+git stash clean                                    # clean the stash area
 git stash pop                                      # This command restores the most recently stashed files.
 git stash drop                                     # This command discards the most recently stashed changeset.
 git stash apply stash@{0}                          # revert to staging area
