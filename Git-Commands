@@ -121,7 +121,8 @@ vi.gitignore               # add the files which you want to ignore       # whic
 git stash list                                     # to list all stash files
      ex:- latest files stash@{0}
      ex:- previous files stash@{1} 
-     
+
+git stash show -p stash@{0}                        # this command is print what changes in that particular stashfile. 
 git stash save                                     # This command temporarily stores all the modified tracked files.
 git stash clean                                    # clean the stash area
 git stash pop                                      # This command restores the most recently stashed files.
