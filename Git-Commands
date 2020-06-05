@@ -1,5 +1,5 @@
 
-'''
+
 git init <repository name>                           # This command is used to start a new repository.
 
 git config –global user.name "name"
@@ -7,7 +7,6 @@ git config –global user.email "email address"        # This command sets the a
                                                        to be used with your commits.
                                                        
 git config --edit --global                           # once enter this command that will show the edit the golbal config options                                                       
-'''
 ====================================================
 NOTE: [ change email.user name =  vi ~/.gitconfig ]
 ====================================================
