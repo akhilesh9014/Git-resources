@@ -1,5 +1,5 @@
 
-
+'''
 git init <repository name>                           # This command is used to start a new repository.
 
 git config –global user.name "name"
@@ -7,7 +7,7 @@ git config –global user.email "email address"        # This command sets the a
                                                        to be used with your commits.
                                                        
 git config --edit --global                           # once enter this command that will show the edit the golbal config options                                                       
-
+'''
 ====================================================
 NOTE: [ change email.user name =  vi ~/.gitconfig ]
 ====================================================
@@ -16,10 +16,22 @@ git clone <url>                                      # This command is used to o
 git remote set-url origin <url>                      # this command is used for change the remote repo in git-cmd line.
 git remote -v                                        # it show you that existing remote repo in git.
 
+$ git remote -v                                      # View existing remotes
+
+> origin  https://github.com/OWNER/REPOSITORY.git (fetch)
+> origin  https://github.com/OWNER/REPOSITORY.git (push)
+
+$ git remote rename origin destination                     #  # Change remote name from 'origin' to 'destination'
+
+$ git remote -v                                            # Verify remote's new name
+> destination  https://github.com/OWNER/REPOSITORY.git (fetch)
+> destination  https://github.com/OWNER/REPOSITORY.git (push)
+
+
 git add <file name>                                  # this command is adds a file to working to staging area.
 git add -A                                           # Add all new and changed files to the staging area.
 git status                                           # This command lists all the files that have to be committed.
-git commit -m "Type in the commit message" < >          # This command records or snapshots the file permanently in the version history.
+git commit -m "Type in the commit message" < >       # This command records or snapshots the file permanently in the version history.
 git commit -a -m " msg "                             # This command commits any files you’ve added with the git add command and also commits any files you’ve changed since then.
 
 git reset head <file name>                           # staging area to workplace
@@ -48,6 +60,7 @@ git log --grep --decorate                            # --graph flag draws a text
 
 git log --since=yyyy-mm-dd                           # particular date and year of the logs
 git log --until=y-m-d                                # display starting to present logs
+
 ---------------------------------------------------------------------------------------------------
 git init --base --shared                             # directly creat central repository
 ---------------------------------------------------------------------------------------------------
