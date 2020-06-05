@@ -13,6 +13,8 @@ NOTE: [ change email.user name =  vi ~/.gitconfig ]
 ====================================================
 
 git clone <url>                                      # This command is used to obtain a repository from an existing URL.
+git remote set-url origin <url>                      # this command is used for change the remote repo in git-cmd line.
+git remote -v                                        # it show you that existing remote repo in git.
 
 git add <file name>                                  # this command is adds a file to working to staging area.
 git add -A                                           # Add all new and changed files to the staging area.
