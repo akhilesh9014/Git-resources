@@ -11,6 +11,7 @@ git config --edit --global                           # once enter this command t
 NOTE: [ change email.user name =  vi ~/.gitconfig ]
 ====================================================
 
+git clone -b <branch> ssh://<user.name>/IP:2218/Repo
 git clone <url>                                      # This command is used to obtain a repository from an existing URL.
 git remote set-url origin <url>                      # this command is used for change the remote repo in git-cmd line.
 git remote -v                                        # it show you that existing remote repo in git.
@@ -153,6 +154,17 @@ git pull <Repository Link>                         # This command fetches and me
 
 
 
+
+
+
+[7/28 9:00 AM] Saimukesh Merugumala
+    vi ~/.profile
+eval $(ssh-agent -s)
+ssh-add ~/.ssh/praveen.kanuganti
+git config --globaluser.name "praveen.kanuganti@jocata.com"
+git config --globaluser.name "Praveen Kanuganti"
+
+git clone -b develop ssh://imran.shaik@192.168.0.82:2218/dlp-demo-design
 
 
 
