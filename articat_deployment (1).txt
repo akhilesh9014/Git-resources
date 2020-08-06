@@ -1,0 +1,70 @@
+Deploying the updated war/sql files:
+
+1. Prepare a war file in Jocata laptop and upload into Jocata sftp:
+
+   https://network.jocata.com/jocatacloud/index.php
+   
+2. Download the war file into any Dev EC2 instance and use the below command to upload into SCB's temp artifactory location
+Note: Here 0240220201 should be unique for each deployment
+No need to have unique if you want to upload multiple files you can use same folder but if you want to upload only one file always better to take the new folder
+curl -T EvokeServices.war  ¡°https://artifactory.global.standardchartered.com/artifactory/generic-temp/com/scb/jocata/jocataGrid/0240220201/EvokeServices.war"
+
+file will be moved into below temp folder
+generic-temp_local/com/scb/jocata/jocataGrid/0240220201
+
+3. Trigger a build to move this into war artifactory:
+
+https://jenkins.global.standardchartered.com/job/BILALIN/job/sc-jocata-artefactory-upload/job/develop/job/sc-jocata-war-upload/
+Enter the temp artifactory location : generic-temp_local/com/scb/jocata/jocataGrid/024022020/*.*
+
+The file will be uploaded into below link: file name will suffixed with a file release number.
+
+https://artifactory.global.standardchartered.com/artifactory/generic-release/com/scb/jocata/release/jocata-svc-evokeservices/EvokeServices-20200402_082717.war
+
+4. Clone below repositories from develop branch: 
+
+https://bitbucket.global.standardchartered.com/projects/BILALIN/repos/sc-jocata-deployment-config/browse
+https://bitbucket.global.standardchartered.com/projects/BILALIN/repos/sc-jocata-deployment-scripts/browse
+
+5. Go to "sc-jocata-deployment-config" repository and open Release-Version.json file, this file will have release configurations against all wars and db scripts.
+
+Example Updated evokewrapper release id from #3
+ 
+ "jocata-svc-evokeservices": "20200402_082717",
+ 
+ Commit the changes into repository.
+ Push the changes.
+ Create a pull request from dev to master - While creating merge request provide reviewer bankId to approve the changes (give one Jocata person bank ID) 
+ Jocata reviewer will approve the changes.
+ Then login back with previous bankid and merge the changes.
+ 
+6. Run the following Jenkins job to upload the lastest sc-jocata-deployment-config to Artifactory.
+
+https://jenkins.global.standardchartered.com/job/BILALIN/job/sc-jocata-deployment-config/job/master/job/Package/
+
+This build will create a config version as shown below:
+
+Ex: Version : 20200402_084828
+
+7. Update the config version into script files, update version number in deployWrapper.sh file of sc-jocata-deployment-scripts repo
+
+example:
+
+#export CONFIG_VERSION=[RELEASE]
+export CONFIG_VERSION=20200402_084828
+
+Commit these changes into repo, follow the same #5 steps
+
+8. The above script changes need to upload to Artifactory by triggering following Jenkins build
+
+https://jenkins.global.standardchartered.com/job/BILALIN/job/sc-jocata-deployment-scripts/job/master/job/Package/
+
+This build will create a script version as shown below:
+
+Version : 20200402_085955
+
+9. The deployment script version number should be updated into the cloud terraform scripts to affect the changes in the cloud. As we dont have access to these scripts we need to request Arumugam/Vinay to update the version number.
+
+Version : 20200402_085955
+
+10. Once the version number is updated in terraform, terminate the EC2 instance(e.g. here EvokeWrapper EC2 instance) in the SCB AWS cloud console, the AWS will automatically recreates the EC2 instance with the latest changes.
